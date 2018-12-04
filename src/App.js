@@ -13,7 +13,7 @@ class App extends Component {
   componentDidMount(){
     console.log("didMount");
     $.ajax({
-        url:"http://localhost:8080/api/autores",
+        url:"https://cdc-react.herokuapp.com/api/autores",
         dataType: 'json',
         success:function(resposta){    
           console.log("chegou a resposta");          
