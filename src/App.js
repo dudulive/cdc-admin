@@ -9,7 +9,7 @@ class App extends Component {
     this.state = { lista: [] };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     $.ajax({
       url: "http://localhost:8080/api/autores",
       dataType: 'json',
@@ -81,7 +81,7 @@ class App extends Component {
                   {
                     this.state.lista.map(function (autor) {
                       return (
-                        <tr>
+                        <tr key={autor.id}>
                           <td>{autor.nome}</td>
                           <td>{autor.email}</td>
                         </tr>
