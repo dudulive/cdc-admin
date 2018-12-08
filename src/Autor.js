@@ -3,7 +3,6 @@ import $ from 'jquery';
 import InputCustomizado from './componentes/InputCustomizado';
 import PubSub from 'pubsub-js';
 import TratadorErros from  './TratadorErros';
-import BotaoSubmitCustomizado from './componentes/BotaoSubmitCustomizado';
 
 class FormularioAutor extends Component {
 
@@ -51,8 +50,8 @@ class FormularioAutor extends Component {
     this.setState({senha:evento.target.value});
   }  
 
-    render() {
-        return (
+	render() {
+		return (
             <div className="pure-form pure-form-aligned">
               <form className="pure-form pure-form-aligned" onSubmit={this.enviaForm} method="post">
                 <InputCustomizado id="nome" type="text" name="nome" value={this.state.nome} onChange={this.setNome} label="Nome"/>                                              
@@ -60,20 +59,20 @@ class FormularioAutor extends Component {
                 <InputCustomizado id="senha" type="password" name="senha" value={this.state.senha} onChange={this.setSenha} label="Senha"/>                                                                      
                 <div className="pure-control-group">                                  
                   <label></label> 
-                  <BotaoSubmitCustomizado label="Gravar"/>                                   
+                  <button type="submit" className="pure-button pure-button-primary">Gravar</button>                                    
                 </div>
               </form>             
 
             </div>  
 
-        );
-    }
+		);
+	}
 }
 
 class TabelaAutores extends Component {
 
-    render() {
-        return(
+	render() {
+		return(
                     <div>            
                       <table className="pure-table">
                         <thead>
@@ -95,9 +94,9 @@ class TabelaAutores extends Component {
                           }
                         </tbody>
                       </table> 
-                    </div>                     
-        );
-    }
+                    </div>             		
+		);
+	}
 }
 
 export default class AutorBox extends Component {
@@ -126,8 +125,13 @@ export default class AutorBox extends Component {
   render(){
     return (
       <div>
-        <FormularioAutor/>
-        <TabelaAutores lista={this.state.lista}/>
+        <div className="header">
+          <h1>Cadastro de autores</h1>
+        </div>
+        <div className="content" id="content">                            
+          <FormularioAutor/>
+          <TabelaAutores lista={this.state.lista}/>        
+        </div>      
 
       </div>
     );
